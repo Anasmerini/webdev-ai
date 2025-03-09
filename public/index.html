@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head><title>WebDev AI</title></head>
+<head>
+  <title>WebDev AI</title>
+</head>
 <body>
   <h1>WebDev AI Assistant</h1>
   <textarea id="input" rows="4" cols="50" placeholder="Ask me anything..."></textarea><br>
@@ -9,14 +11,19 @@
   <script>
     async function sendMessage() {
       const input = document.getElementById('input').value;
-      const res = await fetch('/api/ai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: input })
-      });
-      const data = await res.json();
-      document.getElementById('response').innerHTML = data.response;
+      try {
+        const res = await fetch('/api/ai', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: input })
+        });
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        const data = await res.json();
+        document.getElementById('response').innerHTML = data.response;
+      } catch (error) {
+        document.getElementById('response').innerHTML = 'Error: ' + error.message;
+      }
     }
   </script>
 </body>
-</html> 
+</html>
