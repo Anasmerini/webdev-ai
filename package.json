@@ -1,0 +1,23 @@
+{
+  "name": "webdev-ai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anasmerini/webdev-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anasmerini/webdev-ai/issues"
+  },
+  "homepage": "https://github.com/Anasmerini/webdev-ai#readme",
+  "description": "",
+  "dependencies": {
+    "vercel": "^41.3.2"
+  }
+}
